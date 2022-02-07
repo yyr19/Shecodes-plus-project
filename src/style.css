@@ -3,10 +3,15 @@ h1 {
   font-size: 34px;
   font-weight: bold;
 }
+
+a {
+  text-decoration: none;
+}
+
 .fahrenheit {
   font-size: 20px;
 }
-.first-column {
+.temperature {
   font-size: 50px;
 }
 .weather-app {
@@ -19,7 +24,9 @@ h1 {
   padding-top: 20px;
   padding-bottom: 30px;
 }
-
+.first-column .active {
+  color: black;
+}
 .row {
   padding: 5px;
 }
