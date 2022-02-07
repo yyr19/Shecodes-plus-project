@@ -1,7 +1,16 @@
-function formatDate() {
-  let now = new Date();
-  //let day = now.getDay();
-  let newDay = [
+function formatDate(timestamp) {
+  let date = new Date(timestamp);
+  let hours = date.getHours();
+  if (hours < 10) {
+    hours = `0${hours}`;
+  }
+  let minutes = date.getMinutes();
+  if (minutes < 10) {
+    minutes = `0${minutes}`;
+  }
+  //let day = date.getDay();
+
+  let days = [
     "Sunday",
     "Monday",
     "Tuesday",
@@ -10,41 +19,32 @@ function formatDate() {
     "Friday",
     "Saturday",
   ];
-  let currentDay = newDay[now.getDay()];
+  let day = days[date.getDay()];
 
-  let currentDate = document.querySelector("#current-date");
-  let currentHour = now.getHours();
-  if (currentHour < 10) {
-    currentHour = `0${currentHour}`;
-  }
-
-  let currentMinutes = now.getMinutes();
-  if (currentMinutes < 10) {
-    currentMinutes = `0${currentMinutes}`;
-  }
-  currentDate.innerHTML = `${currentDay} ${currentHour}:${currentMinutes}`;
+  return `${day} ${hours}:${minutes}`;
 }
 
 function displayTemperature(response) {
   console.log(response.data);
   let temperatureElement = document.querySelector("#temperature");
-  temperatureElement.innerHTML = Math.round(response.data.main.temp);
   let cityElement = document.querySelector("#city");
-  cityElement.innerHTML = response.data.name;
   let cloudElement = document.querySelector("#clouds");
-  cloudElement.innerHTML = response.data.weather[0].main;
   let humidityElement = document.querySelector("#humidity");
-  humidityElement.innerHTML = response.data.main.humidity;
   let windElement = document.querySelector("#windspeed");
-  windElement.innerHTML = response.data.wind.speed;
   let dateElement = document.querySelector("#current-date");
-  formatDate;
+
+  temperatureElement.innerHTML = Math.round(response.data.main.temp);
+  cityElement.innerHTML = response.data.name;
+  cloudElement.innerHTML = response.data.weather[0].main;
+  humidityElement.innerHTML = response.data.main.humidity;
+  windElement.innerHTML = response.data.wind.speed;
+  dateElement.innerHTML = formatDate(response.data.dt * 1000);
 }
 
 let apiKey = "2266db8caa8236c84abb00d76c94d010";
-//let cityname = "Amsterdam";
+let cityname = "Amsterdam";
 let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=Amsterdam&appid=${apiKey}&units=metric`;
 
 console.log(apiUrl);
 
-axios.get(apiUrl).then(displayTemperature);
+axios.get(apiUrl).then(displayTemperature, formatDate);
