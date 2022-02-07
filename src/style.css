@@ -1,0 +1,26 @@
+h1 {
+  color: blue;
+  font-size: 34px;
+  font-weight: bold;
+}
+.fahrenheit {
+  font-size: 20px;
+}
+.weather-app {
+  font-family: "roboto mono", monospace;
+
+  margin: 0 auto;
+  border: 1px solid rgba(0, 0, 0, 0.281);
+  border-radius: 10px;
+  padding-right: 20px;
+}
+
+.first-column {
+  font-size: 60px;
+}
+.second-column {
+  font-size: 40px;
+}
+.row {
+  padding: 5px;
+}
