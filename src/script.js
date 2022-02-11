@@ -24,6 +24,36 @@ function formatDate(timestamp) {
   return `${day} ${hours}:${minutes}`;
 }
 
+function displayForecast() {
+  let forecastElement = document.querySelector("#forecast");
+
+  let days = ["Tue", "Wed", "Thu", "Fri", "Sat"];
+
+  let forecastHtml = `<div class="row">`;
+  days.forEach(function (day) {
+    forecastHtml =
+      forecastHtml +
+      `
+  
+          <div class="col-2">
+          <div class="forecast-date">${day}</div>
+            <div><img src="http://openweathermap.org/img/wn/03d@2x.png" alt="" width="100">
+            </div>
+            <div>
+            <span class="weather-forecast-max">6° 
+            </span>| 
+            <span class="weather-forecast-min">2° 
+            </span>
+            </div>
+          </div>     
+        
+`;
+  });
+
+  forecastHtml = forecastHtml + `</div>`;
+  forecastElement.innerHTML = forecastHtml;
+}
+
 function displayTemperature(response) {
   console.log(response.data);
   let temperatureElement = document.querySelector("#temperature");
@@ -89,3 +119,4 @@ let celsiusLink = document.querySelector("#celsius-link");
 celsiusLink.addEventListener("click", displayCelsiusTemperature);
 
 search("Amsterdam");
+displayForecast();
