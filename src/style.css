@@ -8,11 +8,15 @@ a {
   text-decoration: none;
 }
 
+.large-icon {
+  width: 200px;
+}
+
 .fahrenheit {
   font-size: 20px;
 }
 .temperature {
-  font-size: 50px;
+  font-size: 100px;
 }
 .weather-app {
   font-family: "roboto mono", monospace;
