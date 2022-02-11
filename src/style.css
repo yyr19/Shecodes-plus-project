@@ -19,6 +19,7 @@ a {
   max-width: 600px;
 
   margin: 0 auto;
+  margin-top: 30px;
   border: 1px solid rgba(0, 0, 0, 0.281);
   border-radius: 10px;
   padding-top: 20px;
@@ -26,5 +27,12 @@ a {
 }
 
 .row {
-  padding: 5px;
+  padding-top: 20px;
+}
+.weather-forecast {
+  text-align: center;
+  margin-top: 0px;
+}
+.weather-forecast-max {
+  font-weight: bold;
 }
