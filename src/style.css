@@ -35,7 +35,8 @@ a {
   padding-top: 20px;
 }
 .search-input {
-  border: 2px solid #4aa8b3;
+  border: 2px solid #31d2f2;
+  padding: 7px;
 }
 .weather-forecast {
   text-align: center;
